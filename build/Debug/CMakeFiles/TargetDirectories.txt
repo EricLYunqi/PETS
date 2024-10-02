@@ -1,0 +1,3 @@
+/home/ylilo/projects/ust/PETS/build/Debug/CMakeFiles/pets.dir
+/home/ylilo/projects/ust/PETS/build/Debug/CMakeFiles/edit_cache.dir
+/home/ylilo/projects/ust/PETS/build/Debug/CMakeFiles/rebuild_cache.dir

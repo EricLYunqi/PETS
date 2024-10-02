@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -Wall -g2 -ggdb -fopenmp -mavx2 CMakeFiles/pets.dir/graph/graph.cc.o CMakeFiles/pets.dir/pets/contract_graph.cc.o CMakeFiles/pets.dir/pets/generate_pattern.cc.o CMakeFiles/pets.dir/pets/select_pattern.cc.o CMakeFiles/pets.dir/pets/update_pattern.cc.o CMakeFiles/pets.dir/pets/pets.cc.o -o pets 

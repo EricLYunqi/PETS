@@ -1,0 +1,50 @@
+[ 14%] Building CXX object CMakeFiles/pets.dir/pets/ContractGraph.cpp.o
+[ 28%] Building CXX object CMakeFiles/pets.dir/pets/GeneratePattern.cpp.o
+[ 42%] Building CXX object CMakeFiles/pets.dir/pets/SelectPattern.cpp.o
+[ 57%] Building CXX object CMakeFiles/pets.dir/pets/UpdatePattern.cpp.o
+[ 71%] Building CXX object CMakeFiles/pets.dir/pets/Pets.cpp.o
+[ 85%] Building CXX object CMakeFiles/pets.dir/graph/Graph.cpp.o
+/home/ylilo/projects/ust/PETS/graph/Graph.cpp: In member function ‘void Graph::loadGraphFromFiles(const string&, const string&, const string&)’:
+/home/ylilo/projects/ust/PETS/graph/Graph.cpp:13:10: warning: variable ‘fres’ set but not used [-Wunused-but-set-variable]
+   13 |     auto fres = fscanf(statFp, "%u %u %u\n", &numVertex, &numEdge, &numAttribute);
+      |          ^~~~
+/home/ylilo/projects/ust/PETS/pets/SelectPattern.cpp: In static member function ‘static void SelectPattern::calculateCognition(const SuperGraph*, std::vector<Pattern>*)’:
+/home/ylilo/projects/ust/PETS/pets/SelectPattern.cpp:59:10: warning: variable ‘f1’ set but not used [-Wunused-but-set-variable]
+   59 |     auto f1 = [](double x) -> double {
+      |          ^~
+In file included from /home/ylilo/projects/ust/PETS/pets/ContractGraph.h:5,
+                 from /home/ylilo/projects/ust/PETS/pets/ContractGraph.cpp:1:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp: In function ‘const ui ComputeSetIntersection::BinarySearchForGallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp:537:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  537 |         if (mask != 0xffffffff) {
+      |             ~~~~~^~~~~~~~~~~~~
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp: In function ‘const ui ComputeSetIntersection::GallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp:564:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  564 |         if (mask != 0xffffffff) { return offset_beg + (_popcnt32(mask) >> 2); }
+      |             ~~~~~^~~~~~~~~~~~~
+In file included from /home/ylilo/projects/ust/PETS/pets/GeneratePattern.h:6,
+                 from /home/ylilo/projects/ust/PETS/pets/GeneratePattern.cpp:1:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp: In function ‘const ui ComputeSetIntersection::BinarySearchForGallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp:537:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  537 |         if (mask != 0xffffffff) {
+      |             ~~~~~^~~~~~~~~~~~~
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp: In function ‘const ui ComputeSetIntersection::GallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp:564:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  564 |         if (mask != 0xffffffff) { return offset_beg + (_popcnt32(mask) >> 2); }
+      |             ~~~~~^~~~~~~~~~~~~
+In file included from /home/ylilo/projects/ust/PETS/pets/ContractGraph.h:5,
+                 from /home/ylilo/projects/ust/PETS/pets/Pets.cpp:1:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp: In function ‘const ui ComputeSetIntersection::BinarySearchForGallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp:537:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  537 |         if (mask != 0xffffffff) {
+      |             ~~~~~^~~~~~~~~~~~~
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp: In function ‘const ui ComputeSetIntersection::GallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/SetIntersection.hpp:564:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  564 |         if (mask != 0xffffffff) { return offset_beg + (_popcnt32(mask) >> 2); }
+      |             ~~~~~^~~~~~~~~~~~~
+/home/ylilo/projects/ust/PETS/pets/ContractGraph.cpp: In static member function ‘static bool ContractGraph::verifyCycle(const Graph*, const std::vector<unsigned int>&)’:
+/home/ylilo/projects/ust/PETS/pets/ContractGraph.cpp:302:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  302 | }
+      | ^
+[100%] Linking CXX executable pets
+[100%] Built target pets

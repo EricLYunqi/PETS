@@ -1,0 +1,9 @@
+Total clusters: 1
+working on: arxiv
+|V|: 169343	|E|: 1157799	|L|: 128
+Contraction order: Cycle	Star	Chord	Path	Singleton	
+Cardinality of fundmental set: 0
+building csr matrix
+building node index
+building edge index
+139

@@ -1,0 +1,52 @@
+[ 14%] Building CXX object CMakeFiles/pets.dir/pets/contract_graph.cc.o
+[ 28%] Building CXX object CMakeFiles/pets.dir/pets/select_pattern.cc.o
+[ 42%] Building CXX object CMakeFiles/pets.dir/pets/pets.cc.o
+[ 57%] Building CXX object CMakeFiles/pets.dir/graph/graph.cc.o
+[ 71%] Building CXX object CMakeFiles/pets.dir/pets/generate_pattern.cc.o
+[ 85%] Building CXX object CMakeFiles/pets.dir/pets/update_pattern.cc.o
+/home/ylilo/projects/ust/PETS/graph/graph.cc: In member function ‘void Graph::loadGraphFromFiles(const string&, const string&, const string&)’:
+/home/ylilo/projects/ust/PETS/graph/graph.cc:13:10: warning: variable ‘fres’ set but not used [-Wunused-but-set-variable]
+   13 |     auto fres = fscanf(statFp, "%u %u %u\n", &numVertex, &numEdge, &numAttribute);
+      |          ^~~~
+/home/ylilo/projects/ust/PETS/pets/select_pattern.cc: In static member function ‘static void SelectPattern::calculateCognition(const SuperGraph*, std::vector<Pattern>*)’:
+/home/ylilo/projects/ust/PETS/pets/select_pattern.cc:59:10: warning: variable ‘f1’ set but not used [-Wunused-but-set-variable]
+   59 |     auto f1 = [](double x) -> double {
+      |          ^~
+In file included from /home/ylilo/projects/ust/PETS/pets/contract_graph.h:7,
+                 from /home/ylilo/projects/ust/PETS/pets/pets.cc:1:
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp: In function ‘const ui compute_set_intersection::binarySearchForGallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp:39:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+   39 |         if (mask != 0xffffffff) {
+      |             ~~~~~^~~~~~~~~~~~~
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp: In function ‘const ui compute_set_intersection::gallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp:68:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+   68 |         if (mask != 0xffffffff) { return offset_beg + (_popcnt32(mask) >> 2); }
+      |             ~~~~~^~~~~~~~~~~~~
+In file included from /home/ylilo/projects/ust/PETS/pets/contract_graph.h:7,
+                 from /home/ylilo/projects/ust/PETS/pets/contract_graph.cc:1:
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp: In function ‘const ui compute_set_intersection::binarySearchForGallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp:39:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+   39 |         if (mask != 0xffffffff) {
+      |             ~~~~~^~~~~~~~~~~~~
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp: In function ‘const ui compute_set_intersection::gallopingSearchAVX2(const VertexID*, ui, ui, ui)’:
+/home/ylilo/projects/ust/PETS/util/set_intersection.hpp:68:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+   68 |         if (mask != 0xffffffff) { return offset_beg + (_popcnt32(mask) >> 2); }
+      |             ~~~~~^~~~~~~~~~~~~
+In file included from /home/ylilo/projects/ust/PETS/pets/pets.cc:5:
+/home/ylilo/projects/ust/PETS/util/gen_query.hpp: In function ‘void generate_query::collectAllPaths(const std::vector<std::vector<unsigned int> >&, std::vector<std::vector<unsigned int> >&, ui, ui, std::vector<bool>&, std::vector<unsigned int>&, ui, ui, int)’:
+/home/ylilo/projects/ust/PETS/util/gen_query.hpp:607:14: warning: comparison of integer expressions of different signedness: ‘int’ and ‘ui’ {aka ‘unsigned int’} [-Wsign-compare]
+  607 |     if(depth > sizeHigh)
+      |        ~~~~~~^~~~~~~~~~
+/home/ylilo/projects/ust/PETS/util/gen_query.hpp:612:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘ui’ {aka ‘unsigned int’} [-Wsign-compare]
+  612 |         if(depth >= sizeLow)
+      |            ~~~~~~^~~~~~~~~~
+/home/ylilo/projects/ust/PETS/pets/contract_graph.cc: In static member function ‘static bool ContractGraph::verifyCycle(const Graph*, const std::vector<unsigned int>&)’:
+/home/ylilo/projects/ust/PETS/pets/contract_graph.cc:302:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  302 | }
+      | ^
+/home/ylilo/projects/ust/PETS/util/gen_query.hpp: In function ‘void generate_query::generateCycleQueries(ui, ui, ui, std::vector<Pattern>&, const Graph*)’:
+/home/ylilo/projects/ust/PETS/util/gen_query.hpp:747:16: warning: unused variable ‘x’ [-Wunused-variable]
+  747 |             ui x = cyclesUniverse[rdidx][rand() % cyclesUniverse[rdidx].size()];
+      |                ^
+[100%] Linking CXX executable pets
+[100%] Built target pets
