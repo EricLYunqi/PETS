@@ -8,9 +8,9 @@ RED='\033[0;31m'
 compile_file="build/Debug/compile.log"
 output_file="output/${dataname}.log"
 
-cmake -B build/Debug 
+cmake -B build/Debug -DCMAKE_BUILD_TYPE=Debug
 
-nohup cmake --build build/Debug --config Debug --clean-first -- -j $(nproc) > "${compile_file}">&1 &
+nohup cmake --build build/Debug --clean-first -- -j $(nproc) > "${compile_file}">&1 &
 
 oldpid=$!
 wait $oldpid

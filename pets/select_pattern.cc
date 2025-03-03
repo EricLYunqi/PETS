@@ -90,7 +90,8 @@ void SelectPattern::calculateCognition(const SuperGraph *superGraph, std::vector
 
 
 void SelectPattern::greedySelect(std::vector<Pattern> *DRP, Pattern *patterns, ui numVertex, 
-                                 ui numAttribute)
+                                 ui numAttribute, const std::vector<ui> &selected, 
+                                 ui requiredSize)
 {
     ui patternCount = 0;
     ui totpattern = numVertex * DIVERSIFIED_K;
@@ -106,12 +107,17 @@ void SelectPattern::greedySelect(std::vector<Pattern> *DRP, Pattern *patterns, u
     // unsigned long long attrflag = 0, tempaf = 0;
     std::bitset<3000000> af, tempaf;
 
-    for (int i = 0; i < PATTERN_SET_SIZE; i++) {
+    ui desiredSize = requiredSize == 0 ? PATTERN_SET_SIZE : requiredSize;
+    ui totalSize = selected.empty() ? numVertex : selected.size();
+    bool isNotIndex = selected.empty();
+
+    for (int i = 0; i < desiredSize; i++) {
         double maxps = -1e8;
         int maxnid = -1;
         int maxp = -1;
 
-        for(int nid = 0; nid < (int)numVertex; nid++) {
+        for(int nid = 0; nid < (int)totalSize; nid++) {
+            nid = isNotIndex ? nid : (int)selected[nid];
             int pos = 0;
             for(auto &p : DRP[nid]) {
                 if(flag[p.id])

@@ -60,27 +60,27 @@ int main(int argc, char *argv[])
     graph->printMetaData(dataname);
 
     // contraction
-    superGraph = new SuperGraph;
-    gettimeofday(&conBegin, NULL);
-    ContractGraph::buildSuperGraph(graph, graphType, superGraph);
-    gettimeofday(&conEnd, NULL);
-    superGraph->printGraphMetaData();
+    // superGraph = new SuperGraph;
+    // gettimeofday(&conBegin, NULL);
+    // ContractGraph::buildSuperGraph(graph, graphType, superGraph);
+    // gettimeofday(&conEnd, NULL);
+    // superGraph->printGraphMetaData();
 
-    // generate
-    GeneratePattern::allocateBuffers(superGraph, patterns);
-    gettimeofday(&genBegin, NULL);
-    GeneratePattern::generatePatterns(superGraph, patterns);
-    gettimeofday(&genEnd, NULL);
+    // // generate
+    // GeneratePattern::allocateBuffers(superGraph, patterns);
+    // gettimeofday(&genBegin, NULL);
+    // GeneratePattern::generatePatterns(superGraph, patterns);
+    // gettimeofday(&genEnd, NULL);
 
-    // select
-    ui patternNumVertex = superGraph->numChord + superGraph->numCycle 
-                        + superGraph->numPath + superGraph->numStar;
-    SelectPattern::allocateBuffers(topkPatterns);
-    gettimeofday(&selBegin, NULL);
-    SelectPattern::calculateCoverage(superGraph, patterns);
-    SelectPattern::calculateCognition(superGraph, patterns);
-    SelectPattern::greedySelect(patterns, topkPatterns, patternNumVertex, graph->numAttribute);
-    gettimeofday(&selEnd, NULL);
+    // // select
+    // ui patternNumVertex = superGraph->numChord + superGraph->numCycle 
+    //                     + superGraph->numPath + superGraph->numStar;
+    // SelectPattern::allocateBuffers(topkPatterns);
+    // gettimeofday(&selBegin, NULL);
+    // SelectPattern::calculateCoverage(superGraph, patterns);
+    // SelectPattern::calculateCognition(superGraph, patterns);
+    // SelectPattern::greedySelect(patterns, topkPatterns, patternNumVertex, graph->numAttribute);
+    // gettimeofday(&selEnd, NULL);
 
     // generate a set of queries
     // update pattern set according to them
@@ -113,4 +113,6 @@ int main(int argc, char *argv[])
     // release
     GeneratePattern::releaseBuffers(patterns);
     SelectPattern::releaseBuffers(topkPatterns);
+
+    return 0;
 }

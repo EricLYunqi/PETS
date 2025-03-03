@@ -58,28 +58,97 @@ bool UpdatePattern::isSubgraph(const Pattern &lhs, const Pattern &rhs,
 
 bool UpdatePattern::isSubgraph(const UpdatePattern::BoostGraph &lhs, const UpdatePattern::BoostGraph &rhs)
 {
+    if(boost::num_vertices(lhs) > boost::num_vertices(rhs) || boost::num_edges(lhs) > boost::num_edges(rhs))
+        return false;
 
-    
     vf2_bool_callback<UpdatePattern::BoostGraph> callback(lhs, rhs);
     return boost::vf2_subgraph_mono(lhs, rhs, callback);
 }
 
 
 void UpdatePattern::collectHitedSuperNode(const SuperGraph *superGraph, const Pattern &partialQuery, 
-                                          std::vector<ui> &nodeId, const PMIndex &index)
+                                          std::vector<ui> nodeId[4], const PMIndex &index)
 {
     UpdatePattern::BoostGraph gQuery = reformatPattern2Boost(partialQuery);
 
-    std::vector<ui> attributeHited;
+    std::vector<ui> attributeHitted;
     for(const auto &attr : partialQuery.distinctAttributes)
         for(const auto &nid : index.invertedAttributeList[attr])
-            attributeHited.emplace_back(nid);
+            attributeHitted.emplace_back(nid);
     
-    std::vector<ui> structureHited;
+    std::vector<ui> structureHitted;
     for(ui i = 0; i < MAX_PATTERN_SIZE + 1; i++) {
         if(!index.invertedLengthListChord[i].empty()) {
             const auto &gNode = index.nodeBoostGraphChord[i];
-            
+            bool nodeIsSubgraphQuery = isSubgraph(gNode, gQuery);
+            bool queryIsSubgraphNode = isSubgraph(gQuery, gNode);
+            if(nodeIsSubgraphQuery || queryIsSubgraphNode)
+                for(const auto &nid : index.invertedLengthListChord[i])
+                    structureHitted.emplace_back(nid);
         }
     }
+
+    __gnu_parallel::sort(attributeHitted.begin(), attributeHitted.end());
+    __gnu_parallel::sort(structureHitted.begin(), structureHitted.end());
+    
+    std::vector<ui> intersectionHitted;
+    __gnu_parallel::set_intersection(attributeHitted.begin(), attributeHitted.end(), 
+                                     structureHitted.begin(), structureHitted.end(), 
+                                     std::back_inserter(intersectionHitted));
+    
+    std::vector<ui> unionHitted;
+    __gnu_parallel::set_union(attributeHitted.begin(), attributeHitted.end(), 
+                              structureHitted.begin(), structureHitted.end(), 
+                              std::back_inserter(unionHitted));
+
+    std::cout << "###     attribute hitted: " << attributeHitted.size() << std::endl;
+    std::cout << "###     structure hitted: " << structureHitted.size() << std::endl;
+    std::cout << "###  intersection hitted: " << intersectionHitted.size() << std::endl;
+    std::cout << "###         union hitted: " << unionHitted.size() << std::endl;
+
+
+    nodeId[0] = attributeHitted;
+    nodeId[1] = structureHitted;
+    nodeId[2] = intersectionHitted;
+    nodeId[3] = unionHitted;
+}
+
+
+bool UpdatePattern::updatePatternOnDisplay(const SuperGraph *superGraph, const std::vector<ui> nodeId[4],
+                                           std::vector<Pattern> *DRP, const std::vector<ui> &nodeOnDisplay, 
+                                           ui *pattern2Node, Pattern *displayedPattern, Pattern *&newPattern,
+                                           UpdateStrategy strategy)
+{
+    std::vector<ui> hittedNode;
+    switch(strategy) {
+        case UpdateStrategy::ATTRIBUTE: hittedNode = nodeId[0]; break;
+        case UpdateStrategy::STRUCTURE: hittedNode = nodeId[1]; break;
+        case UpdateStrategy::INTERSECTION: hittedNode = nodeId[2]; break;
+        case UpdateStrategy::UNION: hittedNode = nodeId[3]; break;
+    }
+
+    ui hitted = 0;
+    for(ui i = 0; i < nodeOnDisplay.size(); i++)
+        hitted = std::count(hittedNode.begin(), hittedNode.end(), nodeOnDisplay[i]) != 0 ? hitted + 1 : hitted;
+    double hittedRate = hitted * 1.0 / nodeOnDisplay.size();
+
+    if(hittedRate < HIT_THRESHOLD) {
+        std::cout << "hit rate: " << hittedRate << " is greater than threshold: " << HIT_THRESHOLD << std::endl;
+        newPattern = nullptr;
+        return false;
+    }
+
+    std::vector<ui> keptPatternId;
+    for(ui i = 0; i < PATTERN_SET_SIZE; i++)
+        if(std::count(hittedNode.begin(), hittedNode.end(), pattern2Node[i]) != 0)
+            keptPatternId.emplace_back(i);
+    ui requiredSize = PATTERN_SET_SIZE - keptPatternId.size();
+
+    newPattern = new Pattern[PATTERN_SET_SIZE];
+    SelectPattern::greedySelect(DRP, newPattern, superGraph->numVertex, superGraph->numAttribute, 
+                                hittedNode, requiredSize);
+    for(ui i = requiredSize; i < PATTERN_SET_SIZE; i++)
+        newPattern[i] = displayedPattern[keptPatternId[i - requiredSize]];
+
+    return true;
 }

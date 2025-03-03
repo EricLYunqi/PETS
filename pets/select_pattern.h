@@ -25,8 +25,11 @@ public:
     // no isomorphism check between patterns
     static void calculateCoverage(const SuperGraph *superGraph, std::vector<Pattern> *DRP);
     static void calculateCognition(const SuperGraph *superGraph, std::vector<Pattern> *DRP);
+    // selected: a subset of super node id selected in UpdatePattern
+    // if "selected" is nonempty, we will use the DRPs of hitted nodes as candidates
     static void greedySelect(std::vector<Pattern> *DRP, Pattern *patterns, ui numVertex, 
-                             ui numAttribute);
+                             ui numAttribute, const std::vector<ui> &selected = std::vector<ui>(), 
+                             ui requiredSize = 0);
 
     // report pattern set's scores
     static void reportPatternSetScores(const Pattern *patterns, std::string &filename);

@@ -4,6 +4,8 @@
 #include "config/config.h"
 #include "config/type.h"
 #include "graph/pattern.h"
+#include "pets/select_pattern.h"
+#include <parallel/algorithm>
 #include <boost/bind.hpp>
 #include <boost/config.hpp>
 #include <boost/graph/adjacency_list.hpp>
@@ -50,8 +52,16 @@ public:
                            const BoostGraph *boostRhs = nullptr);
     static bool isSubgraph(const BoostGraph &lhs, const BoostGraph &rhs);
     // attribute hit and structure hit seperately
+    // nodeId[0]: attribute hitted
+    // nodeId[1]: structure hitted
+    // nodeId[2]: intersection
+    // nodeId[3]: union
     static void collectHitedSuperNode(const SuperGraph *superGraph, const Pattern &partialQuery, 
-                                      std::vector<ui> &nodeId, const PMIndex &index);
+                                      std::vector<ui> nodeId[4], const PMIndex &index);
+    static bool updatePatternOnDisplay(const SuperGraph *superGraph, const std::vector<ui> nodeId[4],
+                                       std::vector<Pattern> *DRP, const std::vector<ui> &nodeOnDisplay, 
+                                       ui *pattern2Node, Pattern *displayedPattern, Pattern *&newPattern,
+                                       UpdateStrategy strategy);
 };
 
 class PMIndex

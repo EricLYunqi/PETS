@@ -5,6 +5,7 @@
 #include "config/type.h"
 #include "graph/graph.h"
 #include <vector>
+#include <unordered_set>
 
 #define NOTEXIST 0xffffffff
 using PatEdge = std::pair<ui, ui>;
@@ -38,6 +39,7 @@ public:
 
     // avoid re-build subgraph for the same super node
     void reset4SameSuperNode() {
+        numEdge = 0;
         outvertices.clear();
         outedges.clear();
         hasTriangle = false;

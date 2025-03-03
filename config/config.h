@@ -51,4 +51,9 @@
  */
 #define MAX_DISPLAY_PATTERN_SIZE 22
 
+/*
+ * Threshold for whether update
+ */
+#define HIT_THRESHOLD 0.5
+
 #endif // _CONFIG_H_

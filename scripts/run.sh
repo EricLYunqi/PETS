@@ -8,9 +8,9 @@ RED='\033[0;31m'
 compile_file="build/Release/compile.log"
 output_file="output/${dataname}.log"
 
-cmake -B build/Release -D CMAKE_BUILD_TYPE=Release
+cmake -B build/Release -DCMAKE_BUILD_TYPE=Release
 
-nohup cmake --build build/Release --config Release --clean-first -- -j $(nproc) > "${compile_file}">&1 &
+nohup cmake --build build/Release --clean-first -- -j $(nproc) > "${compile_file}">&1 &
 
 oldpid=$!
 wait $oldpid

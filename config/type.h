@@ -20,4 +20,12 @@ enum class SuperNodeType
     SINGLETON = 4
 };
 
+enum class UpdateStrategy
+{
+    ATTRIBUTE = 0,
+    STRUCTURE = 1,
+    INTERSECTION = 2,
+    UNION = 3
+};
+
 #endif // _TYPE_H_

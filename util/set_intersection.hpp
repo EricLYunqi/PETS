@@ -5,8 +5,10 @@
 #include "config/type.h"
 #include "config/config.h"
 #include <cstdint>
+#include <algorithm>
 #include <immintrin.h>
 #include <x86intrin.h>
+#include <assert.h>
 
 /*
  * Because the set intersection is designed for computing common neighbors, the target is uieger.
@@ -1089,6 +1091,9 @@ inline void computeCandidates(const VertexID* larray, const ui l_count,
                               const VertexID* rarray, const ui r_count,
                               VertexID* cn, ui &cn_count) 
 {
+    assert(std::is_sorted(larray, larray + l_count));
+    assert(std::is_sorted(rarray, rarray + r_count));
+
 #if HYBRID == 0
     #if SI == 0
     if (l_count / 50 > r_count || r_count / 50 > l_count) {
@@ -1128,6 +1133,9 @@ inline void computeCandidates(const VertexID* larray, const ui l_count,
                               const VertexID* rarray, const ui r_count,
                               ui &cn_count) 
 {
+    assert(std::is_sorted(larray, larray + l_count));
+    assert(std::is_sorted(rarray, rarray + r_count));
+
 #if HYBRID == 0
     #if SI == 0
         if (l_count / 50 > r_count || r_count / 50 > l_count) {

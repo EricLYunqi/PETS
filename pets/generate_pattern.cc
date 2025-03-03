@@ -60,6 +60,11 @@ void GeneratePattern::generatePatterns(const SuperGraph *superGraph, std::vector
 
                     for(const auto &c : comb) {
                         ui outv = originalEdges[c].second;
+                        if(originalEdges[c].first >= superGraph->numOriginalVertex ||
+                           originalEdges[c].second >= superGraph->numOriginalVertex) {
+                            std::cerr << "error in: " << c << " " << sid << " " << eid << std::endl;
+                            exit(1);
+                        }
                         if(!g.ifVertexExist(outv))
                             g.outvertices.emplace_back(outv);
 
