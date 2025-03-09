@@ -1,0 +1,187 @@
+Unknown 0:00
+Okay, so let's say for the for the beginning, let's say user one to start a credit right? Enters let's say a keyword based on a keyword, the pattern panel shows setup patterns which may be useful. Okay, then users select one pattern and then adds a keyword on some one of the nodes, let's say based on this. So now you know the user is now looking for some matches containing this, this structure and actually good on one or two notes right after that. That means the next step the user wants to add. The next pattern the user wants to add, is what we're going to recommend dynamically based on what the user has already entered in the query draft panel. So it is not first selecting. So you imagine you Have a can patterns set already? Yeah, right now it is a bit like query query query suggestions where at this point of time tattoo tattoo has the same set of patterns right for a given query right. No matter what query you draw it shows you the set of patterns right? Yeah. And it's all topology based right. Now, what if in one panel you have the patterns and another panel you have the attributes what it does not tell the user is that if I want to start with some attributes, let's say what patterns really relevant to that attribute that will what patterns will contain that attribute and then I get the I said let's say my system gives me a suggestion on those I select one of them I modify them add the attribute then after that, what will be relevant into based on the current information of these attributes on some nodes and the current pattern structure? So it is it is not a just topology it is you have to consider both the attribute values in the data
+
+Unknown 2:21
+Yeah, but I but I think I have I have already considered that because further contracting graph or each node, okay, it's still fun. Oh yeah, go ahead, you talk Okay. Okay. So, in the contract graph, each is super node has associate is associate associated with with with the label
+
+Unknown 2:55
+of the to say that in your area, if you see section 5.2 graph contraction,
+
+Unknown 3:01
+sorry, I want to base your opinion
+
+Unknown 3:05
+you open it on the screen if you can. Okay, share the screen okay? Because Hello.
+
+Unknown 4:45
+Okay, let's see. Yes. Go down to section 5.5. Point two here. Okay. If you see your graph construction problem. Yeah, it does not there's no attribute there. So we're not corrected by Super reg. You're taking a compact grab VA T H, O supernode. So to me that synopsis let me let me check. And then you can better selection is Takala you base. You can pattern selection has to take now into attributes
+
+Unknown 5:26
+So
+
+Unknown 5:35
+so this is the attribute graph right. So
+
+Unknown 5:38
+that is only the last time we talked about attribute. Yeah, these are all topological. Yeah. Because this is the old old Ken parents selection problem. Actually we are not doing anymore. You're we are now doing basically given this set Can patterns you have? Oh trying to recommend
+
+Unknown 6:00
+this is a we can we can say she goes through.
+
+Unknown 6:04
+So your original tree.
+
+Unknown 6:08
+So, you see, this is the original graph, right. Right. And so, this is a contract graph
+
+Unknown 6:17
+right and you can see it is all Yeah. Yeah.
+
+Unknown 6:21
+All this is from logic strike, this is the structure right. But each contract is associated with synopsis as for Psygnosis recall. So, usual so necessary information for each of your core node. So, so
+
+Unknown 6:46
+synopsis as you can see in your synopsis table, it's all structure.
+
+Unknown 6:51
+Yeah. Oh, oh, yeah, bad. So with the contraction deconstruction function, sorry, placeholder. It's so important to count friction
+
+Unknown 7:33
+Oh, sorry, I forgot to mention that. Yeah. Wait, we have a contract go off. And the cinema says and wave has has also ot contraction function, which can which kind of recap our third note of each super node? So that's just Yes. Okay.
+
+Unknown 7:51
+But the thing is that you will have to come into play. Yeah. And also your assumption assumption is that you have already a set of candidate items from topology, topology, which candidate patterns. So we are not nine to do, you can imagine we are because the attributes, we will only know during query time, our can pattern selection can augment the pattern, you will attribute information, that's fine. So the current tattoos can parents election, right? You can augment that with attribute information, you have a candidate set of parents, that's fine. But for a query, what attributes will be used or Yes, is only you know, at query time for a given user? Yeah. Correct. So we need to take into account all all the candidate patterns can pattern candidate can parent with their attributes value, which currently catapult Chatwal terrible does not consider that actually does not consider the attribute values. So we have to augment that and then the selection of at the query level in real time, what patterns we show for as the query progresses, that is the one which requires you to basically consider attributes and, and select the relevant pattern. The contraction you're talking about is pre processing, right? You pre process the large graphic by performing a contraction, and then doing the steps we have done in, in modify steps that we have done in Title paper. But that is that is basically you're trying to we can try to create the candidate patterns that way, that's fine, but query time. That's where the thing is, we have to select the correct patterns, the most useful patterns based on this partial attribute information Yeah, for the partial Trakula information. Yeah. So. So it is not it is not that like like in catapult catapult or in Yeah, it will give the patterns and that's it. Yeah, problem. Yeah. So it is changing.
+
+Unknown 10:14
+Yeah. So wait, I have proposed a pm index, which, so, for each supernode there is a mapping with attributes and and some fragments here. So you also can search attribute right for right. So for example, if a way if a way select so attributes are one our term we know which supernode is also interrelate to the may contain this attribute, right? Yes. So we know which way you know the
+
+Unknown 10:55
+Yeah, that's right. Yeah, you're Yeah, you're this, this contraction, what you're doing it has to be created on the chant patterns. Not on the actual subgraphs not sure on the ground because we are revealing the can patterns. Remember, remember tattoo has this candidate pattern set and found where we select the patterns. Yeah, can pattern right? So similarly, you can imagine you have a candidate pattern set, which has the attribute information and that information can be in the pm index, or you can even do contraction of the candidate pattern. So that's no problem. But what we're recommending is not the not a specific sub graph, but a pattern. Yeah. Okay. Right. Yeah. It's not the specific sub graph in a data graph that we're recommending it is the pattern.
+
+Unknown 11:47
+Yeah, it's a pattern right. So, so,
+
+Unknown 11:51
+so, it cannot be the original graph where you are doing the recommendation right. Because in the original graph, you can see new figure V 11, which will be 13 before then can appear many times. So, this can be a pattern, but not the instance in this not this particular embedding in the original graph.
+
+Unknown 12:13
+Um, but yeah, but for ECL for know that we have a way how already recall which pattern is generated from the super node?
+
+Unknown 12:24
+Okay. So, so, this can patterns are actually generated? And is a mapping within the right yeah, document is not coming out clearly. So, yeah. You got appointed problem, the problem has to be in that way that during query time, we are suggesting or recommending patterns, yeah, which is evolving with what the user is adding attributes and topology, in tattoo, or in catapult, the set of cam patterns is fixed once the user has selected the patterns, yeah, right. That's it, but now, with creating because the patterns only gives the topology it still does not tell the user if I want to have this particular keyword, a particular attribute value pairs which patterns are really useful because many of these patterns may not have those keywords, right. Yeah. All right. So, we are evolving. So you can imagine this is like a crazy, but crazy suggestions of the can patterns rather than suggesting the can patterns which are relevant not suggesting the actual data graphs data sub graphs. So, we are not so using actual sub graphs in the original graph, we are suggesting can patterns which are relevant with respect to these attribute value pairs and sub graph inequality? These are slightly different problem here. Yeah.
+
+Unknown 13:58
+So the pm index, so forth. So pm leaders can record a relationship of attributes and sound search fragments with a relationship between attributes and fragments away and so supernode and for Ecco, for node, we maintain some Bluetooth patterns some data is diversified patterns that can be generated from the super node. So, so, RT RT one prime is the cap is a is a kind of pattern is a kind of pattern is a partial is a is some kind of patterns in the in the current pattern said it Yeah. So, so, each time if a way if a way use different attributes, where you will note that which supernode Yeah, which table which table node may contain this attribute or wish they were not in
+
+Unknown 15:01
+this index? Yeah. What is the size of the index?
+
+Unknown 15:05
+So says in this example, is is a is a number of safe on all
+
+Unknown 15:13
+supernodes right
+
+Unknown 15:14
+times that the number of attributes and some fragments you'll you want to present for index. Yeah. So what is this fragment? Oh, okay. So, so, so, fragments is that as I mentioned in in pm index, so from fragments consists of some basic sagrado T one and T two. So T one and T two is as this is mentioned in the ICT in the title paper, she wants you to either see one is transact triangle two is to see this shape This is the one that and
+
+Unknown 16:00
+yeah, this is the basic patterns.
+
+Unknown 16:03
+Yeah, yeah. Because right because we're not add that
+
+Unknown 16:07
+then go up go up go to the previous page here okay where are you using the pull up
+
+Unknown 16:13
+okay. So, where
+
+Unknown 16:17
+are you using the chord patterns and so on
+
+Unknown 16:21
+sorry. So,
+
+Unknown 16:23
+where are you using the call to the pattern and starting with the core part yeah in your in your document where do you use the cord rooted patterns
+
+Unknown 16:39
+okay
+
+Unknown 16:40
+because in your in your index structure where it is used?
+
+Unknown 16:43
+Oh yeah. Yeah. So, pattern maintenance. So, so, parchment this is what we say that way dynamically come right from day this pattern. So, as dimensional in section four for each tuple know that we maintain a set of diversified motor patterns, we are some sorry, we are some craft are in the current dependency, right? That is actually one prime r two prime. So Prime TT. This one is in the current pattern said p. For example, for the simple know that we issue our way maintains a routine, a routine routine graph RT one and x one prime where as as one prime, he says in current patterns. And so when the user attributes, our simple while to the partial Q, which we'll look I was lucky me that index to check with simple node contents the attribute understand that
+
+Unknown 17:51
+I understand where are you using the hot patterns? The starship patterns in this index? Is it RG prime?
+
+Unknown 18:04
+Yeah. Okay. Okay. So trying to use
+
+Unknown 18:06
+the same name. Yes. Yeah. Okay, because I cannot follow your names your looted graph, what is the neutral graph?
+
+Unknown 18:14
+Okay, okay. Okay. Okay. So I sent us
+
+Unknown 18:21
+these are okay, fine. Yeah. Go to the next page, go to the next page, you have this. This is also go down here.
+
+Unknown 18:32
+Okay, we have this
+
+Unknown 18:34
+chord chart. graph here. Okay. Are you talking to the cycle looting pattern? Or what?
+
+Unknown 18:43
+Oh, the loop pattern is that so pattern is generate is intended from the, for example, so past routine pattern is the pattern, which is intended for once or pass?
+
+Unknown 18:57
+Yes, I, yeah, I follow that. But where is this in the index?
+
+Unknown 19:03
+Has this index?
+
+Unknown 19:05
+Where is this information in the pm index? All these patterns? Where is it in the pm index? Oh, yeah. Yeah, so this is not good, because you're using neuter graph. But you can graph is not explained clearly. What is that? Oh,
+
+Unknown 19:23
+so here's the route graph is Lucy pattern? References?
+
+Unknown 19:30
+Can you write it more clearly? Okay. Bayes and give some examples of when our food is, you know, some real attribute values and examples so that it's clear what's going.
+
+Unknown 19:40
+Okay. Because I want you to get a quick response to your thought.
+
+Unknown 19:45
+Yeah. I understand that you understand the environment, right, as we add queries and attributes. Yeah. Suggesting? Yeah, yeah. It's like very suggestion. Yeah. Because currently, if you want to do query selection in runtime on the on the on the actual data graph, right, for large network is very expensive. Yeah. Yes. That means you have to you have to wait for long is no use. Yeah.
+
+Unknown 20:11
+So we want to check with we just want to recommend recommended and saluted to allude to the pattern, so lucid pattern can cow. So cow was the patterns were mentioned in the title paper and Suzanne can quickly generated from a contracted graph. So this is a rigid pattern. And we use the P media to like to recall the relationship between the super node and Lucy pattern, we can record the evolution of this of this query and notice the patterns. So we know Okay, which pattern is generated from which super node and when the quarry wins, acquiring attributes and acquire fragments evolves. Okay with that Wait, wait, wait can quickly become the other some other Rucha Lucida patterns? Yeah.
+
+Unknown 21:05
+Okay, okay, so so go ahead and improve on this and then send me the next version.
+
+Unknown 21:11
+Okay, okay, okay, I can I will elaborate on this input. Okay, okay, okay. Everything okay? Okay, yeah fine.
+
+Unknown 21:20
+Yeah, okay. Okay, so you're in sync mode all right? Yes okay okay okay thanks bye okay bye bye
+
+Unknown 21:51
+just me the young ladies won't be Miss Hope.
+
+Unknown 23:38
+Hello cancer will be Mina when needed to kind of meet the guy and what I'm wondering is should we should have done your financial threshold what you should do you I mean you do
+
+Unknown 24:25
+median triggers are being cheated
+
+Unknown 24:33
+on me four oh sure
+
+Transcribed by https://otter.ai
