@@ -1,8 +1,9 @@
 The ```docs``` folder involves two major meeting about the project to determine the direction of the prohect. 
 
--- First in the meeting of Kai and Sourav in Oct. 2023, they determined that the PETS should focus on canned pattern for pattern suggestion problem for large-scale attribute graph. The idea is similar to the "AutoG" paper (VLDBJ 2017), which developed a pattern auto-completetion framework for graph databases.
+-- Firstly, in the meeting of Kai and Sourav in Oct. 2023, they discussed that the PETS should focus on canned pattern suggestion problem for large-scale attribute graph. The idea is similar to the "AutoG" paper (VLDBJ 2017), which developed a pattern auto-completetion framework for graph databases. To be more specific, the framework should update the displayed canned pattern set according the partial query constructed by the user.
 
--- Then in the meeting of Kai and Yunqi in Nov. 2024, they discussed again about the specific step for the canned pattern update framework.
+-- Then in the meeting of Kai and Yunqi in Nov. 2024, they discussed again about the specific algorithm for the canned pattern update framework. 
 
-The ```docs/paper``` contains some relevant papers.
-The ```docs/mining``` contains on the other meeting between Kai and Yunqi discussing mining patterns to form supernode.
+The ```docs/paper``` contains sufficient relevant papers for this project.
+
+The ```docs/mining``` contains other meeting materials shared by Kai about mining patterns to form supernode.
